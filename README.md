@@ -30,7 +30,7 @@ coefficient. This coefficient is scaled to 179 in this version to provide EML un
 
 - [Lark's homepage](http://faculty.washington.edu/inanici/Lark/Lark_home_page.html)
 - [Lark on Github](https://github.com/larkspectral)
-- [tutorials](https://www.youtube.com/channel/UC3hiIWgMCPn3JfBO6J9UUfw) on Youtube
+- [v1 tutorials](https://www.youtube.com/channel/UC3hiIWgMCPn3JfBO6J9UUfw) on Youtube
 
 
 
