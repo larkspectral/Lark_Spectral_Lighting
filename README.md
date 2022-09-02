@@ -24,7 +24,7 @@ Lark v2.0 includes the following new features:
 
 1. On a Windows machine, install:
 - Rhino3D v6 or later (https://www.rhino3d.com/)
-- Radiance v5.3 or later (https://github.com/LBNL-ETA/Radiance/releases)
+- Radiance v5.4a (2021-02-07) Pre-release (tag: e87d63a4) or later (https://github.com/LBNL-ETA/Radiance/releases)
 - Ladybug v0.0.69 or later and Honeybee v0.0.66 or later [Legacy Plugins] (https://www.food4rhino.com/en/app/ladybug-tools) 
 	/!\ Follow the installation instructions for Ladybug/Honeybee (including the installation of Daysim v4.0)
 	/!\ If you cannot find the FalseStartToggle after installing the Legacy Plugins, also install Ladybug Tools 1.5.0 or later (https://www.food4rhino.com/en/app/ladybug-tools)
