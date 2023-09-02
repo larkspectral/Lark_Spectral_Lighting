@@ -1,4 +1,50 @@
-# Lark v2.0
+# Lark v3.0
+
+
+This is version 3.0 of Lark Spectral Lighting, based upon Lark Spectral Lighting v2.0 and v1.0 for Grasshopper/Rhino environment to investigate circadian, non-visual light. The objective of Lark Spectral Lighting is to make non-visual lighting analysis more accessible to architects, lighting designers, researchers, and other interested parties. The simulation engine is Radiance; and Lark is provided as an open source and freely available tool. Lark allows for simulations in 9 channels and computes photopic (luminance and illuminance values), melanopic, and neuropic metrics.
+
+Lark is originally developed as a collaboration between Mehlika Inanici, Ph.D. (University of Washington) and ZGF Architects LLP. The beta version of Lark was released in 2015. After 7 years of testing by the developers and third parties, Lark 1.0 was released in 2022. Modifications and new features in Lark Spectral Lighting v2.0 were developed by Clotilde Pierson, Ph.D. (EPFL, Oregon State University) and Myrta Gkaintatzi-Masouti, M.Sc. (Eindhoven University of Technology), with contributions from ZGF Architects LLP for the electric lighting simulation workflow and contributions from Priji Balakrishnan, Ph.D. and Alstan J. Jakubiec, Ph.D. for the implementation of the Perez sky model. Lark v3.0 was developed by Bo Jung, M.Sc., Mehlika Inanici, Ph.D. (University of Washington) and ZGF Architects LLP.
+
+
+
+### What is new in v3.0:
+
+
+The 9-channel division bins have been updated in v.3.0 (see license for details) **Due to this change, the components from previous versions should not be used in v.3.0.**. 
+Lark v3.0 includes the following new features: 
+• Option to calculate neuropic luminance and illuminances for 9 channel point in time simulations. 
+• Option to add spectra for the sun (previous version allowed adding spectra for the sky). 
+• Option to use either direct and diffuse irradiance (-W option in gendaylit) or global irradiance (-E option in gendaylit) when building radiance sky files. 
+• Option to use perez sky -C option based on luminance to color the sky (only available for 3 channel simulations)  
+• Option to save simulated results in a specified folder (previously "C:/lark/temp"). 
+• Update to “Lark Convert SPD” component to automatically read spectral intervals and ignore any text in the text file. The component also auto fills the missing spectral range within 380-780nm to match the previous number. i.e. if the data started from 385nm (0.8W/m2)  and reached to 780nm, 0.8W/m2 will be copied in the beginning so that 380nm to 384nm is also 0.8W/m2. 
+
+
+
+### Installation instructions:
+1. On a Windows machine, install:
+- Rhino3D v6 or later (https://www.rhino3d.com/)
+- Radiance v5.4a (2021-02-07) Pre-release (tag: e87d63a4) or later (https://github.com/LBNL-ETA/Radiance/releases)
+- Ladybug v0.0.69 or later and Honeybee v0.0.66 or later [Legacy Plugins] (https://www.food4rhino.com/en/app/ladybug-tools) 
+	/!\ Follow the installation instructions for Ladybug/Honeybee (including the installation of Daysim v4.0)
+	/!\ If you cannot find the FalseStartToggle after installing the Legacy Plugins, also install Ladybug Tools 1.5.0 or later (https://www.food4rhino.com/en/app/ladybug-tools)
+
+2. In Windows, search for “Edit the system environment variables”, and make sure that for the “PATH” and "RAYPATH" variables, the Radiance installation directory paths (C:\Radiance\bin and C:\Radiance\lib) are at the top of the list, above any other path of software using Radiance such as Daysim. Once you saved the environment variables, open the terminal and type e.g. “where gendaylit”. The first path displayed should be the one of your original Radiance directory (C:\Radiance\bin\gendaylit.exe).
+
+3. Go to https://www.food4rhino.com/en/app/lark-spectral-lighting and download Lark Spectral Lighting v3.0. Unzip the file.
+
+4. Open Rhino and type "Grasshopper" into the command line (without quotations). Wait for grasshopper to load.
+
+5. Select and drag all the userObject files (.ghuser) from the Lark_Spectral_Lighting_v3 folder that you downloaded onto your grasshopper canvas. You should see a Lark tab appear on the Grasshopper tool bar.
+
+6. Create the lark folder (C:\lark) if none exists. From the Lark_Spectral_Lighting_v2 folder, copy the 4 HDR masking files (1_upper_inner.hdr, 2_lower_inner.hdr, 3_upper_outer.hdr, 4_lower_outer.hdr) and paste them in the lark folder.
+
+7. Restart Rhino and grasshopper. You now have a fully-functioning Lark 3.0. You can open and use the provided example 3D model (.3dm), example simulation inputs, and one of the three Lark 3.0 templates (.gh) as the starting point for your simulations.
+  
+
+
+
+## Lark v2.0
 
 
 This is version 2.0 of Lark Spectral Lighting, based upon Lark Spectral Lighting v1.0 for Grasshopper/Rhino environment to investigate circadian, non-visual light. The objective of Lark Spectral Lighting is to make circadian lighting analysis more accessible to architects, lighting designers, researchers, and other interested parties. The simulation engine is Radiance; and Lark is provided as an open source and freely available tool. Lark allows for simulations in 9 channels and computes photopic (luminance and illuminance values) and circadian/non-visual metrics (e.g. alpha-opic values).
@@ -92,7 +138,7 @@ Inanici M, Brennan M, and Clark E. "[Multi-spectral Lighting Simulations: Comput
 
 Gkaintatzi-Masouti M., Pierson C., Van Duijnhoven J., Andersen M., Aarts M. "A simulation tool for indoor lighting design considering ipRGC-induced responses". BuildSim Nordic Conference, Copenhagen, Denmark, Aug. 22-23, 2022
 
-
+Jung BY, Cheng Z, Brennan M, Inanici M. "Multispectral Lighting Simulation Approaches for Predicting Opsin-driven Metrics and their Application in a Neonatal Intensive Care Unit." 18th International IBPSA Conference and Exhibition, Shanghai, China, Sept. 4-6, 2023.
 
 
 ## Software:
