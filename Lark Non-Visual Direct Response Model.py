@@ -4,8 +4,11 @@
 # Authors Dr. Mehlika Inanici, Marty Brennan & Ed Clark
 # Lark v2.0 is a collaboration of EPFL, Oregon State University, and Eindhoven University of Technology
 # Authors Dr. Clotilde Pierson & Myrta Gkaintatzi-Masouti
-# Copyright 2015-2022 Mehlika Inanici, Ph.D. (University of Washington) and ZGF Architects LLP
-# Copyright 2022 Clotilde Pierson, Ph.D. (EPFL, Oregon State University) and Myrta Gkaintatzi-Masouti, M.Sc. (Eindhoven University of Technology)
+# Lark Spectral Lighting v3.0 is a collaboration of University of Washington and ZGF Architects LLP
+# Authors Bo Jung, Dr. Mehlika Inanici, Marty Brennan, and Zining Cheng 
+# Copyright 2015-2022 University of Washington (Mehlika Inanici, Ph.D.) and ZGF Architects LLP
+# Copyright 2022 EPFL, Oregon State University (Clotilde Pierson, Ph.D.), and Eindhoven University of Technology (Myrta Gkaintatzi-Masouti, M.Sc.)
+# Copyright 2023 University of Washington (Bo Jung, M.Sc., Mehlika Inanici, Ph.D., Zining Cheng, M.Sc.) and ZGF Architects LLP
 # Licensed under The Modified 3-Clause BSD License (the "License");
 # You may obtain a copy of the License at
 # https://opensource.org/licenses/BSD-3-Clause
@@ -17,7 +20,7 @@ The nvRD model takes as input a time series of eye-level light stimuli and trans
 More information about the model can be found in this PhD thesis:
 Amundadottir, 2016, "Light-driven model for identifying indicators of non-visual health potential in the built environment", https://infoscience.epfl.ch/record/221429?ln=en
 -
-Provided by Lark 2.0.0
+Provided by Lark 3.0.0
 
     Args:
         spectral_data:A path to a csv file with timeseries of spectral irradiance. 
@@ -37,9 +40,9 @@ Provided by Lark 2.0.0
 __author__ = "cpierson"
 __version__ = "2021.10.15"
 
-ghenv.Component.Name = "Lark Non-Visual Direct Response Model"
+ghenv.Component.Name = "Lark Non-Visual Direct Response Model v3"
 ghenv.Component.NickName = 'nvRD'
-ghenv.Component.Message = '2.0.0'
+ghenv.Component.Message = '3.0.0'
 ghenv.Component.Category = "Lark"
 ghenv.Component.SubCategory = "Timeseries"
 

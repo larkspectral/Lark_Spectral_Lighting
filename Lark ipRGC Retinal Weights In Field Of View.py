@@ -4,11 +4,18 @@
 # Authors Dr. Mehlika Inanici, Marty Brennan & Ed Clark
 # Lark v2.0 is a collaboration of EPFL, Oregon State University, and Eindhoven University of Technology
 # Authors Dr. Clotilde Pierson & Myrta Gkaintatzi-Masouti
-# Copyright 2015-2022 Mehlika Inanici, Ph.D. (University of Washington) and ZGF Architects LLP
-# Copyright 2022 Clotilde Pierson, Ph.D. (EPFL, Oregon State University) and Myrta Gkaintatzi-Masouti, M.Sc. (Eindhoven University of Technology)
+# Lark Spectral Lighting v3.0 is a collaboration of University of Washington and ZGF Architects LLP
+# Authors Bo Jung, Dr. Mehlika Inanici, Marty Brennan, and Zining Cheng 
+# Copyright 2015-2022 University of Washington (Mehlika Inanici, Ph.D.) and ZGF Architects LLP
+# Copyright 2022 EPFL, Oregon State University (Clotilde Pierson, Ph.D.), and Eindhoven University of Technology (Myrta Gkaintatzi-Masouti, M.Sc.)
+# Copyright 2023 University of Washington (Bo Jung, M.Sc., Mehlika Inanici, Ph.D., Zining Cheng, M.Sc.) and ZGF Architects LLP
 # Licensed under The Modified 3-Clause BSD License (the "License");
 # You may obtain a copy of the License at
 # https://opensource.org/licenses/BSD-3-Clause
+
+# Last updated by Bo Jung for Lark v3.0 (2023-08-15):
+# Updated to include option for adding file save location (default is "C:/lark/temp").
+# Removed option to change file name. File name is now based on the picture name with "_weighted" added at the end. i.e. picture = blue.hdr, filename = blue_weighted.hdr.
 
 """
 Use this component to apply ipRGC retinal coefficients to different parts of the field of view.  
@@ -18,25 +25,25 @@ Before using this component place the 4 .hdr mask files (1_upper_inner.hdr, 2_lo
 More information about the retinal weighting can be found in this PhD thesis:
 Khademagha, P. 2021, “Light directionality in design of healthy offices”, https://research.tue.nl/en/publications/light-directionality-in-design-of-healthy-offices-exploration-of-
 -
-Provided by Lark 2.0.0
+Provided by Lark 3.0.0
 
     Args:
         picture: filepath to 3-channel HDR image
         resolution: pixel resolution of the 3-channel HDR image
         RunPcomb: Set Boolean to True to apply weighting
-        filename: optional name for the output HDR image
+        filepath: optional directory for the output HDR image (default is "C:/lark/temp")
     Returns:
         out: warnings and errors
         current_dir: current working folder 
         weighted_pic: filepath to ipRGC retinal weighted HDR image
 """
 
-__author__ = "cpierson"
-__version__ = "2022.07.25"
+__author__ = "Bo Jung"
+__version__ = "2023.08.15"
 
-ghenv.Component.Name = "Lark ipRGC Retinal Weights In Field Of View"
+ghenv.Component.Name = "Lark ipRGC Retinal Weights In Field Of View v3"
 ghenv.Component.NickName = 'ipRGC FOV Weighting'
-ghenv.Component.Message = '2.0.0'
+ghenv.Component.Message = '3.0.0'
 ghenv.Component.Category = "Lark"
 ghenv.Component.SubCategory = "Point-in-time"
 
@@ -44,6 +51,9 @@ import rhinoscriptsyntax as rs
 import os
 import re
 from subprocess import Popen
+import Grasshopper.Kernel as gh
+e = gh.GH_RuntimeMessageLevel.Error
+w = gh.GH_RuntimeMessageLevel.Warning
 
 
 
@@ -55,9 +65,16 @@ else:
     pass
 path_masks = 'C:\lark'
 os.chdir(path)
-#print out current directory
-current_dir = path
 
+if filepath == None or []:        
+    filepath = path
+    print("no filepath given. Default filepath used:", filepath)
+    
+else:
+    print("filepath:", filepath)
+
+#print out current directory
+current_dir = filepath
 
 
 #check all inputs
@@ -75,17 +92,15 @@ else:
     check = 1
 
 if check == "error":
-    print "Warning! Connect the following inputs:" 
-    print error_list
+    ghenv.Component.AddRuntimeMessage(w, "Warning! Connect the following inputs: " + ", ".join(error_list))
 
-if filename == None:        
-    filename = ""
-
-
+if not RunPcomb:
+    ghenv.Component.AddRuntimeMessage(w, "Warning! Turn RunPcomb to True to use this component.")
 
 #if no error in inputs, apply the ipRGC retinal weighting coefficients through masks
 if check != "error":
-    extension = "weighted.hdr"
+    extension = "_weighted.hdr"
+    filename = picture.split("\\")[-1][:-4]  # get filename based on picture name (get rid of path and ".hdr")
     picname = "%s%s" %(filename,extension)
 
     #resize HDR masks based on size of the HDR image that they have to be applied to
@@ -120,8 +135,10 @@ if check != "error":
     #delete temporary images
     tempdel1 = "del *Temp* "
 
+
     #create batch file
-    batch = open("batchfile.bat", "w")
+    batch_loc = filepath + "\\batchfile.bat"
+    batch = open(batch_loc, "w")
     batch.write(v0 + '\n' * 3 + v1 + '\n' * 3 + v2 + '\n' * 3 + v3 + '\n' * 3 + v4 + '\n' * 3 + v5 + '\n' * 3 + v6 + '\n' * 3 + v7 + '\n' * 3 + vtotal + '\n' * 3 + tempdel1)
     batch.close()
 
@@ -129,8 +146,8 @@ if check != "error":
     if RunPcomb != True:
         pass
     else:
-        runbatch = Popen("batchfile.bat", cwd=path)
+        runbatch = Popen("batchfile.bat", cwd=filepath)
         stdout, stderr = runbatch.communicate()
         
         #print filepath to output picture
-        weighted_pic = os.getcwd() + "\\" + picname
+        weighted_pic = filepath + "\\" + picname

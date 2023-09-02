@@ -4,8 +4,11 @@
 # Authors Dr. Mehlika Inanici, Marty Brennan & Ed Clark
 # Lark v2.0 is a collaboration of EPFL, Oregon State University, and Eindhoven University of Technology
 # Authors Dr. Clotilde Pierson & Myrta Gkaintatzi-Masouti
-# Copyright 2015-2022 Mehlika Inanici, Ph.D. (University of Washington) and ZGF Architects LLP
-# Copyright 2022 Clotilde Pierson, Ph.D. (EPFL, Oregon State University) and Myrta Gkaintatzi-Masouti, M.Sc. (Eindhoven University of Technology)
+# Lark Spectral Lighting v3.0 is a collaboration of University of Washington and ZGF Architects LLP
+# Authors Bo Jung, Dr. Mehlika Inanici, Marty Brennan, and Zining Cheng 
+# Copyright 2015-2022 University of Washington (Mehlika Inanici, Ph.D.) and ZGF Architects LLP
+# Copyright 2022 EPFL, Oregon State University (Clotilde Pierson, Ph.D.), and Eindhoven University of Technology (Myrta Gkaintatzi-Masouti, M.Sc.)
+# Copyright 2023 University of Washington (Bo Jung, M.Sc., Mehlika Inanici, Ph.D., Zining Cheng, M.Sc.) and ZGF Architects LLP
 # Licensed under The Modified 3-Clause BSD License (the "License");
 # You may obtain a copy of the License at
 # https://opensource.org/licenses/BSD-3-Clause
@@ -13,7 +16,7 @@
 """
 Use this component to calculate the quantities of the CIE S 026 toolbox
 -
-Provided by Lark 2.0.0
+Provided by Lark 3.0.0
 
     Args:
         channel_output: The 9 or 3 channel values from the Radiance calculation
@@ -28,9 +31,9 @@ Provided by Lark 2.0.0
 __author__ = "mgkaintatzi-masouti"
 __version__ = "2021.09.15"
 
-ghenv.Component.Name = "Lark CIE Toolbox Alpha-opic Quantities"
+ghenv.Component.Name = "Lark CIE Toolbox Alpha-opic Quantities v3"
 ghenv.Component.NickName = 'CIE Toolbox'
-ghenv.Component.Message = '2.0.0'
+ghenv.Component.Message = '3.0.0'
 ghenv.Component.Category = "Lark"
 ghenv.Component.SubCategory = "Utilities"
 
@@ -91,8 +94,8 @@ if check != "error":
     print alpha
     
     #define the bins between 380 - 780nm for 9 and 3 channels (bin and channel are interchangeable terms)
-    bin9 = [380,422],[422,460],[460,498],[498,524],[524,550],[550,586],[586,650],[650,714],[714,780] #9 channels: b1,b2,b3,g1,g2,g3,r1,r2,r3 
-    bin3 = [586,780],[498,586],[380,498]  #3 channels: r,g,b 
+    bin9 = [380,419],[419,459],[459,499],[499,529],[529,558],[558,587],[587,608],[608,630],[630,780] #9 channels: b1,b2,b3,g1,g2,g3,r1,r2,r3 
+    bin3 = [587,780],[499,587],[380,499]  #3 channels: r,g,b 
     
     if len(channel_output) == 3:
         binType = bin3
