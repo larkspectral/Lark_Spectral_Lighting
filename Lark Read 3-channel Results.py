@@ -4,8 +4,11 @@
 # Authors Dr. Mehlika Inanici, Marty Brennan & Ed Clark
 # Lark v2.0 is a collaboration of EPFL, Oregon State University, and Eindhoven University of Technology
 # Authors Dr. Clotilde Pierson & Myrta Gkaintatzi-Masouti
-# Copyright 2015-2022 Mehlika Inanici, Ph.D. (University of Washington) and ZGF Architects LLP
-# Copyright 2022 Clotilde Pierson, Ph.D. (EPFL, Oregon State University) and Myrta Gkaintatzi-Masouti, M.Sc. (Eindhoven University of Technology)
+# Lark Spectral Lighting v3.0 is a collaboration of University of Washington and ZGF Architects LLP
+# Authors Bo Jung, Dr. Mehlika Inanici, Marty Brennan, and Zining Cheng 
+# Copyright 2015-2022 University of Washington (Mehlika Inanici, Ph.D.) and ZGF Architects LLP
+# Copyright 2022 EPFL, Oregon State University (Clotilde Pierson, Ph.D.), and Eindhoven University of Technology (Myrta Gkaintatzi-Masouti, M.Sc.)
+# Copyright 2023 University of Washington (Bo Jung, M.Sc., Mehlika Inanici, Ph.D., Zining Cheng, M.Sc.) and ZGF Architects LLP
 # Licensed under The Modified 3-Clause BSD License (the "License");
 # You may obtain a copy of the License at
 # https://opensource.org/licenses/BSD-3-Clause
@@ -13,7 +16,7 @@
 """
 Read the 3 channel values from a Honeybee result file
 -
-Provided by Lark 2.0.0
+Provided by Lark 3.0.0
 
     Inputs:
         resFile: Path to a res file containing the 3 channel values
@@ -24,9 +27,9 @@ Provided by Lark 2.0.0
 __author__ = "cpierson"
 __version__ = "2022.05.06"
 
-ghenv.Component.Name = "Lark Read 3-channel Results"
+ghenv.Component.Name = "Lark Read 3-channel Results v3"
 ghenv.Component.NickName = "Read RGB"
-ghenv.Component.Message = '2.0.0'
+ghenv.Component.Message = '3.0.0'
 ghenv.Component.Category = "Lark"
 ghenv.Component.SubCategory = "Point-in-time"
 
