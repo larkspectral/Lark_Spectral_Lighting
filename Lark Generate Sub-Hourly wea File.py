@@ -4,12 +4,14 @@
 # Authors Dr. Mehlika Inanici, Marty Brennan & Ed Clark
 # Lark v2.0 is a collaboration of EPFL, Oregon State University, and Eindhoven University of Technology
 # Authors Dr. Clotilde Pierson & Myrta Gkaintatzi-Masouti
-# Copyright 2015-2022 Mehlika Inanici, Ph.D. (University of Washington) and ZGF Architects LLP
-# Copyright 2022 Clotilde Pierson, Ph.D. (EPFL, Oregon State University) and Myrta Gkaintatzi-Masouti, M.Sc. (Eindhoven University of Technology)
+# Lark Spectral Lighting v3.0 is a collaboration of University of Washington and ZGF Architects LLP
+# Authors Bo Jung, Dr. Mehlika Inanici, Marty Brennan, and Zining Cheng 
+# Copyright 2015-2022 University of Washington (Mehlika Inanici, Ph.D.) and ZGF Architects LLP
+# Copyright 2022 EPFL, Oregon State University (Clotilde Pierson, Ph.D.), and Eindhoven University of Technology (Myrta Gkaintatzi-Masouti, M.Sc.)
+# Copyright 2023 University of Washington (Bo Jung, M.Sc., Mehlika Inanici, Ph.D., Zining Cheng, M.Sc.) and ZGF Architects LLP
 # Licensed under The Modified 3-Clause BSD License (the "License");
 # You may obtain a copy of the License at
 # https://opensource.org/licenses/BSD-3-Clause
-
 """
 Use this to create a wea weather file with subhourly data. 
 This is necessary to run the nvRD component for which the input data should be with a timestep of 6 minutes (reccommended resolution).
@@ -19,7 +21,7 @@ This component uses the ds_shortterm program of daysim which uses a stochastic m
 More information about how it works in this paper: Walkenhorst et al., 2002, "Dynamic annual daylight simulations based on one-hour and one-minute means of irradiance data".
 https://www.sciencedirect.com/science/article/pii/S0038092X02000191?via%3Dihub
 -
-Provided by Lark 2.0.0
+Provided by Lark 3.0.0
 
     Inputs:
         epw: Path to an epw weather file
@@ -33,9 +35,9 @@ Provided by Lark 2.0.0
 __author__ = "mgkaintatzi-masouti"
 __version__ = "2021.10.15"
 
-ghenv.Component.Name = "Lark Generate Sub-Hourly wea File"
+ghenv.Component.Name = "Lark Generate Sub-Hourly wea File v3"
 ghenv.Component.NickName = 'wea Short-Term'
-ghenv.Component.Message = '2.0.0'
+ghenv.Component.Message = '3.0.0'
 ghenv.Component.Category = "Lark"
 ghenv.Component.SubCategory = "Timeseries"
 
