@@ -133,6 +133,7 @@ coefficient. This coefficient is scaled to 179 in this version to provide EML un
 
 ## Publications:
 
+Jung B, Cheng Z, Brennan M, Inanici M. "Multispectral Lighting Simulation Approaches for Predicting Opsin-driven Metrics and their Application in a Neonatal Intensive Care Unit," (https://doi.org/10.26868/25222708.2023.1446) IBPSA 2023 Conference, Shanghai, China, September 4-6, 2023.
 
 Inanici M, Brennan M, and Clark E. "[Multi-spectral Lighting Simulations: Computing Circadian Light](http://www.ibpsa.org/proceedings/BS2015/p2467.pdf)," International Building Performance Simulation Association (IBPSA) 2015 Conference, Hyderabad, India, December 7-9, 2015.
 
@@ -151,6 +152,7 @@ Available online at: https://www.food4rhino.com/en/app/lark-spectral-lighting
 
 ## Presentations:
 
+- "Multispectral Lighting Simulation Approaches for Predicting Opsin-driven Metrics and their Application in a Neonatal Intensive Care Unit", BPSA 2023 Conference, Shanghai, China, September 4-6, 2023.
 - "Lark 2.0 – a simulation tool to support the design of healthy indoor environments", IES Annual Conference, Aug. 18-20, 2022, New Orleans (LA), USA.
 - "A simulation tool for indoor lighting design considering ipRGC-induced responses", BuildSim Nordic Conference, Aug. 22-23, 2022, Copenhagen, Denmark.
 - Designing for Circadian Rhythms," Greenbuild 2016, Los Angeles, CA, October 5, 2016 (with E. Clark).
